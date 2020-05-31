@@ -14,18 +14,28 @@ const Films: React.FC = () => {
     api.get('/films')
       .then(response => {
         setFilms(response.data.results);
-      })
-      .catch(error => {
-        
-      })
-  },[allFilms]);
+      });
+  }, [allFilms]);
 
   return (
-    <>
-      {allFilms.map(film => (
-        <h1 key={film.episode_id}>{film.title}</h1>
-      ))}
-    </>
+    <div className="film-container">
+      <ul>
+        {allFilms.map(film => (
+          <li key={film.episode_id}>
+            <strong>Filme:</strong>
+            <p>{film.title}, episódio {film.episode_id}</p>
+
+            <strong>Diretor:</strong>
+            <p>{film.director}</p>
+
+            <strong>Produtor:</strong>
+            <p>{film.producer}</p>
+
+            <button className="button">Detalhes</button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

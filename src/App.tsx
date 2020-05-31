@@ -1,5 +1,6 @@
 import React from 'react';
 import Films from './pages/Films';
+import './global.css';
 
 function App() {
   return (
